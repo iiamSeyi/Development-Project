@@ -1,7 +1,7 @@
-import * as THREE from '/three';
-import { GLTFLoader } from '/three/addons/loaders/GLTFLoader.js';
-import { OrbitControls } from '/three/addons/controls/OrbitControls.js';
-import WebGL from 'three/addons/capabilities/WebGL.js';
+import * as THREE from './three';
+import { GLTFLoader } from './three/addons/loaders/GLTFLoader.js';
+import { OrbitControls } from './three/addons/controls/OrbitControls.js';
+import WebGL from './three/addons/capabilities/WebGL.js';
 
 if ( WebGL.isWebGLAvailable() ) {
     
