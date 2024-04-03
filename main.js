@@ -1,35 +1,33 @@
 import * as THREE from 'three';
-// Initialize Three.js scene
-var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-var renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
-// Add lighting to the scene
-var ambientLight = new THREE.AmbientLight(0x404040);
-scene.add(ambientLight);
-var directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-directionalLight.position.set(1, 1, 0).normalize();
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
+
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+directionalLight.position.set(0, 1, 0); 
 scene.add(directionalLight);
+scene.add(new THREE.AmbientLight(0xffffff, 0.5));
 
-// Load the GLTF model
-var loader = new THREE.GLTFLoader();
-loader.load('"C:/Users/Oluwaseyi Salisu/Downloads/tc_gltf.gltf"', function (gltf) {
-    var model = gltf.scene;
-    scene.add(model);
-}, undefined, function (error) {
-    console.error(error);
-});
+const loader = new GLTFLoader();
 
-// Set camera position
+loader.load( 'path/to/model.glb', function ( gltf ) {
+
+	scene.add( gltf.scene );
+
+}, undefined, function ( error ) {
+
+	console.error( error );
+
+} );
+
 camera.position.z = 5;
 
-// Render loop
 function animate() {
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
 }
 animate();
-
-
