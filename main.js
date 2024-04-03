@@ -65,12 +65,7 @@ controls.dampingFactor = 0.25;
 controls.screenSpacePanning = false;
 controls.maxPolarAngle = Math.PI / 2;
 
-function animate() {
-    requestAnimationFrame(animate);
-    renderer.render(scene, camera);
-}
-	// Initiate function or other initializations here
-	animate();
+
 
 } else {
 
@@ -78,3 +73,9 @@ function animate() {
 	document.getElementById( 'container' ).appendChild( warning );
 
 }
+function animate() {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+}
+	// Initiate function or other initializations here
+	animate();
