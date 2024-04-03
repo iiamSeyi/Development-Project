@@ -10,13 +10,25 @@
     </style>
 </head>
 <body>
-	<script type="module" src="main.js">
-		import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import WebGL from 'three/addons/capabilities/WebGL.js';
 
-if ( WebGL.isWebGLAvailable() ) {
+<!-- Your WebGL canvas container -->
+<div id="canvas-container"></div>
+
+<!-- Include Three.js library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<!-- Include GLTFLoader -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/loaders/GLTFLoader.min.js"></script>
+
+<!-- Include OrbitControls -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/controls/OrbitControls.min.js"></script>
+
+<!-- Your custom JavaScript code -->
+<script>
+    // Your JavaScript code goes here
+    // This could be the JavaScript code you provided earlier
+    // Make sure to replace the 'tc_gltf.gltf' path with your actual GLTF model path
+	if ( WebGL.isWebGLAvailable() ) {
     
 
     const scene = new THREE.Scene();
@@ -85,12 +97,24 @@ function animate() {
 	// Initiate function or other initializations here
 	animate();
 
+
+
 } else {
 
 	const warning = WebGL.getWebGLErrorMessage();
 	document.getElementById( 'container' ).appendChild( warning );
 
 }
-	</script>
+
+
+    import * as THREE from 'three';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+	import WebGL from 'three/addons/capabilities/WebGL.js';
+
+    // Your code continues here...
+
+</script>
+
 </body>
 </html>
