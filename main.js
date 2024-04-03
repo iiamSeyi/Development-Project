@@ -7,6 +7,8 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
+const ambientLight = new THREE.AmbientLight(0x404040);
+scene.add(ambientLight);
 const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 directionalLight.position.set(0, 1, 0); 
 scene.add(directionalLight);
@@ -21,6 +23,9 @@ loader.load(
 	function ( gltf ) {
 
 		scene.add( gltf.scene );
+
+        model.rotation.x = Math.PI / 8; 
+        model.rotation.y = Math.PI / 4;
 
 		gltf.animations; // Array<THREE.AnimationClip>
 		gltf.scene; // THREE.Group
@@ -43,7 +48,9 @@ loader.load(
 	}
 );
 
-camera.position.z = 25;
+camera.position.z = 120;
+camera.position.x = 20;
+camera.position.y = 30;
 
 function animate() {
     requestAnimationFrame(animate);
