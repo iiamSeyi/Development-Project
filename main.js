@@ -1,7 +1,7 @@
-import * as THREE from './three';
-import { GLTFLoader } from './three/addons/loaders/GLTFLoader.js';
-import { OrbitControls } from './three/addons/controls/OrbitControls.js';
-import WebGL from './three/addons/capabilities/WebGL.js';
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import WebGL from 'three/addons/capabilities/WebGL.js';
 
 if ( WebGL.isWebGLAvailable() ) {
     
@@ -24,7 +24,7 @@ const loader = new GLTFLoader();
 
 loader.load(
 	// resource URL
-	'public/tc_gltf.gltf',
+	'tc_gltf.gltf',
 	// called when the resource is loaded
 	function ( gltf ) {
 
@@ -32,7 +32,7 @@ loader.load(
 
         gltf.rotation.x = Math.PI / 8; 
         gltf.rotation.y = Math.PI / 4;
-        mgltf.rotation.z = Math.PI / 10;
+        gltf.rotation.z = Math.PI / 10;
 
 		gltf.animations; // Array<THREE.AnimationClip>
 		gltf.scene; // THREE.Group
