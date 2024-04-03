@@ -19,7 +19,7 @@ const loader = new GLTFLoader();
 
 loader.load(
 	// resource URL
-	'tc_gltf.gltf',
+	'public/tc_gltf.gltf',
 	// called when the resource is loaded
 	function ( gltf ) {
 
