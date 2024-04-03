@@ -14,17 +14,36 @@ scene.add(new THREE.AmbientLight(0xffffff, 0.5));
 
 const loader = new GLTFLoader();
 
-loader.load( 'path/to/model.glb', function ( gltf ) {
+loader.load(
+	// resource URL
+	'tc_gltf.gltf',
+	// called when the resource is loaded
+	function ( gltf ) {
 
-	scene.add( gltf.scene );
+		scene.add( gltf.scene );
 
-}, undefined, function ( error ) {
+		gltf.animations; // Array<THREE.AnimationClip>
+		gltf.scene; // THREE.Group
+		gltf.scenes; // Array<THREE.Group>
+		gltf.cameras; // Array<THREE.Camera>
+		gltf.asset; // Object
 
-	console.error( error );
+	},
+	// called while loading is progressing
+	function ( xhr ) {
 
-} );
+		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
 
-camera.position.z = 5;
+	},
+	// called when loading has errors
+	function ( error ) {
+
+		console.log( 'An error happened' );
+
+	}
+);
+
+camera.position.z = 25;
 
 function animate() {
     requestAnimationFrame(animate);
